@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import CreateTodo from 'view/component/todo/CreateTodo';
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <div>
+      <CreateTodo />
+    </div>
+  );
+};
 
-export default App
+export default App;
