@@ -7,7 +7,6 @@ import { createTodo } from 'redux/todo/todoAction';
 
 const CreateTodo = () => {
   const dispatch = useAppDispatch();
-  // const { todoList } = useAppSelector((state) => state.todoReducer);
 
   const [createTodoInput, setCreateTodoInput] = useState<Partial<Todo>>({
     title: '',
