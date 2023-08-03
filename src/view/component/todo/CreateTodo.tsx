@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'service/store';
+import { useAppDispatch } from 'service/store';
 import Input from '../common/input/Input';
 import { Todo } from 'service/model/Todo';
 import { nanoid } from 'nanoid';
