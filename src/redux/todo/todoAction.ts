@@ -1,18 +1,11 @@
 import { TODO_ACTION } from 'service/const/actionConst';
-import { CreateTodoAction, ChangeNameAction } from './todoAction.interface';
+import { CreateTodoAction } from './todoAction.interface';
+import { Todo } from 'service/model/Todo';
+const { CREATE_TODO } = TODO_ACTION;
 
-const { CREATE_TODO, CHANGE_NAME } = TODO_ACTION;
-
-export const createTodo = (title: string): CreateTodoAction => {
+export const createTodo = (todo: Partial<Todo>): CreateTodoAction => {
   return {
     type: CREATE_TODO,
-    payload: title,
-  };
-};
-
-export const changeName = (name: string): ChangeNameAction => {
-  return {
-    type: CHANGE_NAME,
-    payload: name,
+    payload: todo,
   };
 };
