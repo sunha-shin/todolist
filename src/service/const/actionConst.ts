@@ -1,3 +1,4 @@
 export const TODO_ACTION = {
   CREATE_TODO: 'CREATE_TODO',
+  DELETE_TODO: 'DELETE_TODO',
 };
