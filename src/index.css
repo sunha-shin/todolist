@@ -68,4 +68,12 @@ a {
   text-decoration: none;
   color: #767676;
 }
-  
+/* 
+:root {
+  font-size: 16px;
+  --default-background-color: #333;
+}
+
+.a {
+  background-color: var(--default-background-color);
+} */
