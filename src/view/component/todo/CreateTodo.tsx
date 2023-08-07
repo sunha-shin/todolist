@@ -25,6 +25,7 @@ const CreateTodo = () => {
       return;
     }
     dispatch(createTodo({ ...createTodoInput, id: nanoid(), isCompleted: false }));
+    setCreateTodoInput({ ...createTodoInput, title: '', desc: '' });
   };
 
   return (
