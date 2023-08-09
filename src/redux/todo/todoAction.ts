@@ -17,7 +17,7 @@ export const deleteTodo = (id: string | number): DeleteTodoAction => {
   };
 };
 
-export const updateTodo = (updatedTodo: Partial<Todo>): UpdateTodoAction => {
+export const updateTodo = (updatedTodo: Todo): UpdateTodoAction => {
   return {
     type: UPDATE_TODO,
     payload: updatedTodo,
