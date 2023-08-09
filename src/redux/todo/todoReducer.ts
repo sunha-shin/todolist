@@ -29,18 +29,22 @@ const todoReducer: Reducer<TodoStateType, TodoActionTypes> = (
       return {
         ...state,
         todoList: state.todoList.filter((todo) => todo.id !== action.payload),
-        // todoList: tempTodoList
       };
     }
     case UPDATE_TODO: {
-      const tempTodoList = [...state.todoList];
-      // const updatedTodo =
       return {
         ...state,
-        todoList: [...state.todoList],
-        // state.todoList.filter((todo) => todo.id !== action.payload),
-        // const toggleFilter =  { ...state, todo_1: state.todo_1.map(todo => todo.id === action.payload ? { ...todo, isDone: !todo.isDone} : todo)}
-        // return toggleFilter
+        todoList: state.todoList.map((todo: Todo) => {
+          if (todo.id === action.payload.id) {
+            return {
+              ...todo,
+              ...action.payload,
+            };
+          }
+          return {
+            ...todo,
+          };
+        }),
       };
     }
     default:
@@ -51,3 +55,13 @@ const todoReducer: Reducer<TodoStateType, TodoActionTypes> = (
 };
 
 export default todoReducer;
+
+// const personA = {
+//   name: 'hong',
+// };
+
+// const personB = { ...personA };
+// personB.name = 'shin';
+
+// console.log(personA);
+// console.log(personB);

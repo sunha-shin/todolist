@@ -16,7 +16,7 @@ export type DeleteTodoAction = {
 
 export type UpdateTodoAction = {
   type: typeof UPDATE_TODO;
-  payload: Partial<Todo>;
+  payload: Todo;
 };
 
 export type TodoActionTypes = AnyAction | CreateTodoAction | DeleteTodoAction | UpdateTodoAction;
