@@ -4,6 +4,7 @@ import Input from '../common/input/Input';
 import { Todo } from 'service/model/Todo';
 import { nanoid } from 'nanoid';
 import { createTodo } from 'redux/todo/todoAction';
+import Button from '@mui/material/Button';
 
 const CreateTodo = () => {
   const dispatch = useAppDispatch();
@@ -46,7 +47,7 @@ const CreateTodo = () => {
         onChange={onChange}
         dataTestId={'data2'}
       />
-      <button onClick={onClick}>Create Todo</button>
+      <Button onClick={onClick}>Create Todo</Button>
     </div>
   );
 };
