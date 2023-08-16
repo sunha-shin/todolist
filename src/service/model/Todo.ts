@@ -3,8 +3,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 export interface Todo {
   id: string | number;
   title: string | number;
-  desc?: string | number;
   isCompleted?: number;
+  priority: number;
 }
 
 export const todoIsCompeted: string[] = ['Todo', 'InProgress', 'Done', 'aaa'];

@@ -11,7 +11,6 @@ const CreateTodo = () => {
 
   const [createTodoInput, setCreateTodoInput] = useState<Partial<Todo>>({
     title: '',
-    desc: '',
   });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +25,7 @@ const CreateTodo = () => {
       return;
     }
     dispatch(createTodo({ ...createTodoInput, id: nanoid(), isCompleted: 0 }));
-    setCreateTodoInput({ ...createTodoInput, title: '', desc: '' });
+    setCreateTodoInput({ ...createTodoInput, title: '' });
   };
 
   return (
@@ -39,14 +38,7 @@ const CreateTodo = () => {
         onChange={onChange}
         dataTestId={'data1'}
       />
-      <Input
-        type={'text'}
-        name={'desc'}
-        value={createTodoInput.desc}
-        placeholder={'description'}
-        onChange={onChange}
-        dataTestId={'data2'}
-      />
+
       <Button onClick={onClick}>Create Todo</Button>
     </div>
   );

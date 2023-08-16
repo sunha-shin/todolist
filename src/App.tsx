@@ -3,9 +3,6 @@ import Container from '@mui/material/Container';
 import { dayNames, monthNames } from 'service/const/dateNames';
 import CreateTodo from 'view/component/todo/CreateTodo';
 import ShowTodo from 'view/component/todo/ShowTodo';
-import GlobalStyle from 'GlobalStyle';
-import { EditIcon, TrashCanIcon } from 'resource/icons';
-import { Button } from '@mui/material';
 import styled from 'styled-components';
 
 const App = () => {

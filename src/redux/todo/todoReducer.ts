@@ -9,7 +9,11 @@ interface TodoStateType {
 }
 
 const INITIAL_STATE: TodoStateType = {
-  todoList: [],
+  todoList: [
+    { id: '111', title: '111', priority: 0, isCompleted: 0 },
+    { id: '222', title: '222', priority: 0, isCompleted: 0 },
+    { id: '333', title: '333', priority: 0, isCompleted: 0 },
+  ],
 };
 
 const todoReducer: Reducer<TodoStateType, TodoActionTypes> = (

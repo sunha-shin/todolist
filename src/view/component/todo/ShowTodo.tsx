@@ -15,8 +15,8 @@ const ShowTodo = () => {
   const [updateTodoInput, setUpdateTodoInput] = useState<Todo>({
     id: '',
     title: '',
-    desc: '',
     isCompleted: 0,
+    priority: 0,
   });
   const [showUpdateInput, setShowUpdateInput] = useState<boolean>(false);
   console.log(updateTodoInput);
@@ -88,14 +88,6 @@ const ShowTodo = () => {
             name={'title'}
             value={updateTodoInput.title}
             placeholder={'title'}
-            onChange={onChangeUpdate}
-            dataTestId={'data1'}
-          />
-          <Input
-            type={'text'}
-            name={'desc'}
-            value={updateTodoInput.desc}
-            placeholder={'desc'}
             onChange={onChangeUpdate}
             dataTestId={'data1'}
           />
