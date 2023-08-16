@@ -25,7 +25,7 @@ const CreateTodo = () => {
       alert('Enter title');
       return;
     }
-    dispatch(createTodo({ ...createTodoInput, id: nanoid(), isCompleted: false }));
+    dispatch(createTodo({ ...createTodoInput, id: nanoid(), isCompleted: 0 }));
     setCreateTodoInput({ ...createTodoInput, title: '', desc: '' });
   };
 
