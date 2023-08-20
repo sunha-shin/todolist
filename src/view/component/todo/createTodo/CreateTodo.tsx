@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useAppDispatch } from 'service/store';
-import Input from '../common/input/Input';
+import Input from '../../common/input/InputComp';
 import { Todo } from 'service/model/Todo';
 import { nanoid } from 'nanoid';
 import { createTodo } from 'redux/todo/todoAction';
 import Button from '@mui/material/Button';
 
 const CreateTodo = () => {
+  console.log('createtodo');
   const dispatch = useAppDispatch();
 
   const [createTodoInput, setCreateTodoInput] = useState<Partial<Todo>>({

@@ -1,37 +1,51 @@
-import React from 'react';
-import Container from '@mui/material/Container';
-import { dayNames, monthNames } from 'service/const/dateNames';
-import CreateTodo from 'view/component/todo/CreateTodo';
-import ShowTodo from 'view/component/todo/ShowTodo';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Container from '@mui/material/Container';
+import Header from 'view/component/layout/Header';
+import Body from 'view/component/layout/Body';
+
+// import Input from 'view/component/common/input/InputComp';
 
 const App = () => {
-  const today = new Date();
-  const currentDay = dayNames[today.getDay()];
-  const currentMonth = monthNames[today.getMonth()];
-  const currentDate = today.getDate();
+  // const [tempInput, setTempInput] = useState<string>('');
+
+  // const onChangeFunc = (e: any) => {
+  //   setTempInput(e.target.value);
+  // };
+
+  // const today = new Date(Date.now())
+  // Intl.DateTimeFormat('default').format();
+  // 2022.02.01
+
+  const onPrintFunc = (data: string) => {
+    console.log(data);
+  };
+
+  const onClickFunc = (e: any) => {
+    // e.preventDefault();
+    e.preventDefault();
+    alert('hello');
+    window.location.href = 'https://google.com';
+  };
 
   return (
-    <>
-      <AppContainer>
-        <PageWrapper>
-          <Header>
-            <Title>Task List </Title>
-            <AddTaskBtn>+ Add Task</AddTaskBtn>
-          </Header>
-          <Body></Body>
-          <CreateTodo />
-          <ShowTodo />
-        </PageWrapper>
-      </AppContainer>
-    </>
+    <AppContainer>
+      <a href="https://google.com" onClick={onClickFunc}>
+        {' '}
+        asdsd
+      </a>
+      <div onClick={() => console.log('a')}>
+        <div onClick={() => console.log('b')}>
+          <div onClick={() => console.log('c')}>Hello</div>
+        </div>
+      </div>
+      <Header />
+      <Body />
+      <AAA onClickFunc={onPrintFunc} />
+      {/* <input value={tempInput} onChange={onChangeFunc} /> */}
+    </AppContainer>
   );
 };
-
-// const Container = styled(div)`
-//   background: url('https://source.unsplash.com/daily') no-repeat center center fixed;
-//   background-size: cover;
-// `;
 
 const AppContainer = styled(Container)({
   color: '#0a1629',
@@ -39,39 +53,18 @@ const AppContainer = styled(Container)({
   fontWeight: '700',
 }) as typeof Container;
 
-const AddTaskBtn = styled.button`
-  background: #713fff;
-  border: none;
-  border-radius: 14px;
-  box-shadow: 0 6px 12px rgba(113, 63, 255, 0.25);
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  outline: none;
-  padding: 13px 30px;
-`;
-
-const Title = styled.h2`
-  color: #0a1629;
-  font-size: 36px;
-  font-weight: 700;
-`;
-
-const Header = styled.header`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Body = styled.h2`
-  color: #0a1629;
-  font-size: 36px;
-  font-weight: 700;
-`;
-
-const PageWrapper = styled(Container)({
-  margin: '50px 0',
-}) as typeof Container;
-
 export default App;
+
+const AAA = ({ onClickFunc }: { onClickFunc: (data: string) => void }) => {
+  const [tempInput, setTempInput] = useState<string>('');
+
+  const onChangeFunc = (e: any) => {
+    setTempInput(e.target.value);
+  };
+  return (
+    <>
+      <input value={tempInput} onChange={onChangeFunc} />
+      <button onClick={() => onClickFunc(tempInput)}>Click</button>
+    </>
+  );
+};

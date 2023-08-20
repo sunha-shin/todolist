@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { deleteTodo, updateTodo } from 'redux/todo/todoAction';
 import { Todo } from 'service/model/Todo';
 import { useAppSelector, useAppDispatch } from 'service/store';
-import Input from '../common/input/Input';
 import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { EditIcon, TrashCanIcon } from 'resource/icons';
 import { todoIsCompeted } from 'service/model/Todo';
+import * as Styled from './Styled.ShowTodo';
+import Input from 'view/component/common/input/InputComp';
 
 const ShowTodo = () => {
   const dispatch = useAppDispatch();
@@ -58,16 +59,16 @@ const ShowTodo = () => {
   };
 
   return (
-    <div>
+    <Styled.ShowTodo background={'red'}>
       {todoList.map((todo: Todo) => {
         return (
-          <TaskCard key={todo.id}>
+          <div className="task-card" key={todo.id}>
             <div style={{ width: '100px', border: '2px solid black', textOverflow: 'ellipsis' }}>
-              <TaskText>Task</TaskText>
+              <div className="task-text">Task</div>
               <div>{todo.title}</div>
             </div>
             <div>
-              <TaskText>Priority</TaskText>
+              <div className="task-text">Priority</div>
               <div>High</div>
             </div>
             <Button onClick={() => completeTodo(todo)}>{todoIsCompeted[todo.isCompleted as number]}</Button>
@@ -78,7 +79,7 @@ const ShowTodo = () => {
             <Button onClick={() => clickDelete(todo.id)}>
               <TrashCanIcon />
             </Button>
-          </TaskCard>
+          </div>
         );
       })}
       {showUpdateInput && (
@@ -94,26 +95,8 @@ const ShowTodo = () => {
           <button onClick={changeTodo}>update todo</button>
         </>
       )}
-    </div>
+    </Styled.ShowTodo>
   );
 };
-
-const TaskCard = styled.div`
-  align-items: center;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 6px 58px rgba(196, 203, 214, 0.104);
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  padding: 22px 30px;
-`;
-
-const TaskText = styled.span`
-  color: #91929e;
-  font-size: 14px;
-  font-weight: 400;
-  margin-bottom: 7px;
-`;
 
 export default ShowTodo;
