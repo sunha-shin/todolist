@@ -13,3 +13,5 @@ export const monthNames = [
   'November',
   'December',
 ];
+
+export const difficulties: string[] = ['high', 'medium', 'low'];

@@ -1,12 +1,11 @@
+import * as Styled from './ShowTodo.Styled';
 import { useState } from 'react';
 import { deleteTodo, updateTodo } from 'redux/todo/todoAction';
 import { Todo } from 'service/model/Todo';
 import { useAppSelector, useAppDispatch } from 'service/store';
 import Button from '@mui/material/Button';
-import styled from 'styled-components';
 import { EditIcon, TrashCanIcon } from 'resource/icons';
 import { todoIsCompeted } from 'service/model/Todo';
-import * as Styled from './Styled.ShowTodo';
 import Input from 'view/component/common/input/InputComp';
 
 const ShowTodo = () => {
@@ -62,24 +61,23 @@ const ShowTodo = () => {
     <Styled.ShowTodo background={'red'}>
       {todoList.map((todo: Todo) => {
         return (
-          <div className="task-card" key={todo.id}>
-            <div style={{ width: '100px', border: '2px solid black', textOverflow: 'ellipsis' }}>
-              <div className="task-text">Task</div>
-              <div>{todo.title}</div>
+          <section className="task-card" key={todo.id}>
+            <div>
+              <div className="task-top-text">Task</div>
+              <div className="task-text">{todo.title}</div>
             </div>
             <div>
-              <div className="task-text">Priority</div>
-              <div>High</div>
+              <div className="task-top-text">Priority</div>
+              <div className="task-text">High</div>
             </div>
             <Button onClick={() => completeTodo(todo)}>{todoIsCompeted[todo.isCompleted as number]}</Button>
-
             <Button onClick={() => clickUpdate(todo)}>
               <EditIcon />
             </Button>
             <Button onClick={() => clickDelete(todo.id)}>
               <TrashCanIcon />
             </Button>
-          </div>
+          </section>
         );
       })}
       {showUpdateInput && (

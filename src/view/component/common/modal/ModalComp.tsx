@@ -1,14 +1,14 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styled from 'styled-components';
+import ButtonComp from 'view/component/common/button/ButtonComp';
+import { colors } from 'GlobalStyle';
 
 export interface ITodoModal {
   title: string | number;
   open: boolean;
   handleClose: () => void;
-  style?: any;
   children: React.ReactNode;
 }
 
@@ -16,8 +16,14 @@ const ModalComp = ({ title, open, handleClose, children }: ITodoModal) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={style}>
-        <ModalTitle>{title}</ModalTitle>
-        {children}
+        <Title>
+          <ModalTitle>{title}</ModalTitle>
+          <button onClick={handleClose}>X</button>
+        </Title>
+        <Body>{children}</Body>
+        <div>
+          <ButtonComp color={colors['darkGray']}>Add</ButtonComp>
+        </div>
       </Box>
     </Modal>
   );
@@ -42,9 +48,20 @@ const ModalTitle = styled.header`
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 30px;
+  text-align: center;
 `;
 
 const InputLabel = styled.div`
+  color: #7d8592;
+  font-size: 14px;
+`;
+
+const Title = styled.header`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Body = styled.body`
   color: #7d8592;
   font-size: 14px;
 `;

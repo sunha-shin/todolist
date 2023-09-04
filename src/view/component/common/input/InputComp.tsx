@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Styled from './InputComp.Styled';
 
 export interface IInputProps {
   type?: string;
@@ -19,10 +20,11 @@ const Input = ({
   placeholder = 'please type todo title',
   onChange,
   dataTestId,
-  className,
+  className = '',
 }: IInputProps) => {
+  console.log(className);
   return (
-    <input
+    <Styled.InputComp
       type={type}
       name={name}
       value={value}
