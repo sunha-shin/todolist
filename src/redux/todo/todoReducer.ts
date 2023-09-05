@@ -10,24 +10,18 @@ interface TodoStateType {
 
 const INITIAL_STATE: TodoStateType = {
   todoList: [
-    { id: '111', title: '111', priority: 0, isCompleted: 0 },
-    { id: '222', title: '222', priority: 0, isCompleted: 0 },
-    { id: '333', title: '333', priority: 0, isCompleted: 0 },
-    { id: '111', title: '111', priority: 0, isCompleted: 0 },
-    { id: '222', title: '222', priority: 0, isCompleted: 0 },
-    { id: '333', title: '333', priority: 0, isCompleted: 0 },
-    { id: '111', title: '111', priority: 0, isCompleted: 0 },
-    { id: '222', title: '222', priority: 0, isCompleted: 0 },
-    { id: '333', title: '333', priority: 0, isCompleted: 0 },
-    { id: '111', title: '111', priority: 0, isCompleted: 0 },
-    { id: '222', title: '222', priority: 0, isCompleted: 0 },
-    { id: '333', title: '333', priority: 0, isCompleted: 0 },
-    { id: '111', title: '111', priority: 0, isCompleted: 0 },
-    { id: '222', title: '222', priority: 0, isCompleted: 0 },
-    { id: '333', title: '333', priority: 0, isCompleted: 0 },
-    { id: '111', title: '111', priority: 0, isCompleted: 0 },
-    { id: '222', title: '222', priority: 0, isCompleted: 0 },
-    { id: '333', title: '333', priority: 0, isCompleted: 0 },
+    { id: '1', title: 'Go to gym', priority: 0, isCompleted: 0 },
+    { id: '2', title: 'Read a book', priority: 0, isCompleted: 0 },
+    { id: '3', title: 'Go to market', priority: 0, isCompleted: 0 },
+    { id: '4', title: 'Restart Learning Solid works', priority: 0, isCompleted: 0 },
+    { id: '5', title: 'Change slider to scroll', priority: 0, isCompleted: 0 },
+    { id: '6', title: 'To publish the article', priority: 0, isCompleted: 0 },
+    {
+      id: '6',
+      title: 'To publish the article To publish the articleTo publish the articleTo publish the article',
+      priority: 0,
+      isCompleted: 0,
+    },
   ],
 };
 

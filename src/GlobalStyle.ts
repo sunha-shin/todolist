@@ -14,6 +14,7 @@ export const colors: ColorsType = {
   darkGray: '#7d8592',
   lightGray: '#F0F2F5',
   white: '#ffffff',
+  purple: '#713fff',
 };
 
 export const globalMaxWidth = '1024px';

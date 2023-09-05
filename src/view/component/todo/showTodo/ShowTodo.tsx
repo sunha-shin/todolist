@@ -4,6 +4,7 @@ import { deleteTodo, updateTodo } from 'redux/todo/todoAction';
 import { Todo } from 'service/model/Todo';
 import { useAppSelector, useAppDispatch } from 'service/store';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import { EditIcon, TrashCanIcon } from 'resource/icons';
 import { todoIsCompeted } from 'service/model/Todo';
 import Input from 'view/component/common/input/InputComp';
@@ -62,21 +63,28 @@ const ShowTodo = () => {
       {todoList.map((todo: Todo) => {
         return (
           <section className="task-card" key={todo.id}>
-            <div>
+            <div className="task-wrapper">
               <div className="task-top-text">Task</div>
               <div className="task-text">{todo.title}</div>
             </div>
-            <div>
+            <div className="priority-wrapper">
               <div className="task-top-text">Priority</div>
               <div className="task-text">High</div>
             </div>
-            <Button onClick={() => completeTodo(todo)}>{todoIsCompeted[todo.isCompleted as number]}</Button>
-            <Button onClick={() => clickUpdate(todo)}>
-              <EditIcon />
-            </Button>
-            <Button onClick={() => clickDelete(todo.id)}>
-              <TrashCanIcon />
-            </Button>
+            <div className="task-status-wrapper">
+              <Button onClick={() => completeTodo(todo)}>{todoIsCompeted[todo.isCompleted as number]}</Button>
+            </div>
+            <div className="progress-bar-wrapper">
+              <CircularProgress variant="determinate" value={100} size={'24px'} />
+            </div>
+            <div className="buttons-wrapper">
+              <div onClick={() => clickUpdate(todo)} style={{ marginRight: '20px' }}>
+                <EditIcon />
+              </div>
+              <div onClick={() => clickDelete(todo.id)}>
+                <TrashCanIcon />
+              </div>
+            </div>
           </section>
         );
       })}

@@ -1,12 +1,8 @@
-import { getResponsiveMediaQuery, globalMaxWidth } from 'GlobalStyle';
+import { colors, getResponsiveMediaQuery, globalMaxWidth } from 'GlobalStyle';
 import styled from 'styled-components';
 
-// interface HeaderStyle {
-//   background: string;
-// }
-
 export const Header = styled.header`
-  background-color: red;
+  background-color: ${colors.purple};
 
   .container {
     align-items: center;
