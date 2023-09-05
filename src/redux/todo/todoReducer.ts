@@ -17,7 +17,7 @@ const INITIAL_STATE: TodoStateType = {
     { id: '5', title: 'Change slider to scroll', priority: 0, isCompleted: 0 },
     { id: '6', title: 'To publish the article', priority: 0, isCompleted: 0 },
     {
-      id: '6',
+      id: '7',
       title: 'To publish the article To publish the articleTo publish the articleTo publish the article',
       priority: 0,
       isCompleted: 0,

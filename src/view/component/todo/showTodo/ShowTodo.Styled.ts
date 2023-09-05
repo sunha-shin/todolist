@@ -67,6 +67,15 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
       width: 15%;
       display: flex;
       justify-content: end;
+
+      .update-btn {
+        margin-right: 20px;
+        cursor: pointer;
+      }
+
+      .delete-btn {
+        cursor: pointer;
+      }
     }
   }
 `;

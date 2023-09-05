@@ -78,10 +78,10 @@ const ShowTodo = () => {
               <CircularProgress variant="determinate" value={100} size={'24px'} />
             </div>
             <div className="buttons-wrapper">
-              <div onClick={() => clickUpdate(todo)} style={{ marginRight: '20px' }}>
+              <div className="update-btn" onClick={() => clickUpdate(todo)}>
                 <EditIcon />
               </div>
-              <div onClick={() => clickDelete(todo.id)}>
+              <div className="delete-btn" onClick={() => clickDelete(todo.id)}>
                 <TrashCanIcon />
               </div>
             </div>
