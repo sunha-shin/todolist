@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import * as Styled from './ModalComp.Styled';
 import { ExitIcon } from 'resource/icons';
-import ButtonComp from '../button/ButtonComp';
-import { colors } from 'GlobalStyle';
-import { difficulties } from 'service/const/general';
-import { Todo } from 'service/model/Todo';
 
 export interface ITodoModal {
   title: string | number;

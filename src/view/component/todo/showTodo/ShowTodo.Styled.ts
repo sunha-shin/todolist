@@ -8,7 +8,6 @@ interface ShowTodoStyle {
 export const ShowTodo = styled.div<ShowTodoStyle>`
   .task-card {
     background-color: white;
-    /* background: ${(props) => props.background}; */
     border-radius: 24px;
     display: flex;
     justify-content: space-between;
@@ -17,13 +16,7 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
     padding: 22px 30px;
     column-gap: 50px;
     .task-wrapper {
-      /* border: 2px solid red; */
-      /* width: 35%; */
-      /* min-width: ; */
       width: 100%;
-      /* width: 200px; */
-      /* min-width: 200px; */
-      /* max-width: 200px; */
     }
 
     .task-top-text {
@@ -31,7 +24,6 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
       font-size: 14px;
       font-weight: 400;
       margin-bottom: 7px;
-      /* width: 100px; */
       text-overflow: ellipsis;
     }
 
@@ -48,18 +40,11 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
     }
 
     .priority-wrapper {
-      /* border: 2px solid red; */
-      /* max-width: 100px; */
-      /* width: 20%; */
       min-width: 100px;
       text-align: center;
-      /* width: 50px;
-      min-width: 50px; */
     }
 
     .task-status-wrapper {
-      /* border: 2px solid red; */
-      /* width: 20%; */
       min-width: 100px;
       display: flex;
       justify-content: center;
@@ -80,20 +65,14 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
     }
 
     .progress-bar-wrapper {
-      /* border: 2px solid red; */
-      /* width: 10%; */
       min-width: 75px;
       text-align: center;
     }
 
     .buttons-wrapper {
-      /* border: 2px solid red; */
-      /* width: 15%; */
-
       min-width: 75px;
       display: flex;
       justify-content: space-between;
-      /* justify-content: end; */
 
       .update-btn {
         cursor: pointer;

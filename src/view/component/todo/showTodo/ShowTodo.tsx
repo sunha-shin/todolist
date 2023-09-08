@@ -11,6 +11,7 @@ import ModalComp from 'view/component/common/modal/ModalComp';
 import { difficulties } from 'service/const/general';
 import ButtonComp from 'view/component/common/button/ButtonComp';
 import { colors } from 'GlobalStyle';
+import UpdateTodo from '../updateTodo/UpdateTodo';
 
 const ShowTodo = () => {
   const dispatch = useAppDispatch();
@@ -101,54 +102,7 @@ const ShowTodo = () => {
           </section>
         );
       })}
-      {showUpdateInput && (
-        <ModalComp title={'Add Task'} open={open} handleClose={handleClose}>
-          <div>
-            <div>Task</div>
-            <Input
-              type={'text'}
-              name={'title'}
-              value={todoInput.title}
-              placeholder={'Type your task here...'}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
-              }}
-              dataTestId={'data1'}
-            />
-          </div>
-          <div>
-            <div className="">Priority</div>
-            {difficulties.map((priority: string) => {
-              const btnClicked = todoInput.priority === priority;
-              return (
-                <ButtonComp
-                  color={btnClicked ? colors.white : colors[priority]}
-                  $backgroundColor={btnClicked ? colors[priority] : colors.white}
-                  // onClickFunc={() => onClickDifficulty(priority)}
-                  key={priority}
-                  priority={todoInput.priority}
-                >
-                  {priority}
-                </ButtonComp>
-              );
-            })}
-          </div>
-          <div>
-            <ButtonComp color={colors.gray}>Add</ButtonComp>
-          </div>
-        </ModalComp>
-        // <>
-        //   <Input
-        //     type={'text'}
-        //     name={'title'}
-        //     value={updateTodoInput.title}
-        //     placeholder={'title'}
-        //     onChange={onChangeUpdate}
-        //     dataTestId={'data1'}
-        //   />
-        //   <button onClick={changeTodo}>update todo</button>
-        // </>
-      )}
+      {showUpdateInput && <UpdateTodo />}
     </Styled.ShowTodo>
   );
 };
