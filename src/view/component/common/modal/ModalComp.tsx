@@ -3,12 +3,16 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import * as Styled from './ModalComp.Styled';
 import { ExitIcon } from 'resource/icons';
+import ButtonComp from '../button/ButtonComp';
+import { colors } from 'GlobalStyle';
+import { difficulties } from 'service/const/general';
+import { Todo } from 'service/model/Todo';
 
 export interface ITodoModal {
   title: string | number;
   open: boolean;
   handleClose: () => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const ModalComp = ({ title, open, handleClose, children }: ITodoModal) => {
@@ -22,10 +26,10 @@ const ModalComp = ({ title, open, handleClose, children }: ITodoModal) => {
               <ExitIcon />
             </div>
           </div>
-          {children}
-          {/* <div>
+          <div>
             <div>Task</div>
-            <Input
+            {children}
+            {/* <Input
               type={'text'}
               name={'title'}
               value={todoInput.title}
@@ -34,19 +38,19 @@ const ModalComp = ({ title, open, handleClose, children }: ITodoModal) => {
                 setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
               }}
               dataTestId={'data1'}
-            />
+            /> */}
           </div>
-          <div>
+          {/* <div>
             <div className="priority-buttons">Priority</div>
             {difficulties.map((priority: string) => {
-              const btnClicked = todoInput.priority === priority;
+              const btnClicked = selectedPriority === priority;
               return (
                 <ButtonComp
                   color={btnClicked ? colors.white : colors[priority]}
                   $backgroundColor={btnClicked ? colors[priority] : colors.white}
                   onClickFunc={() => onClickDifficulty(priority)}
                   key={priority}
-                  priority={todoInput.priority}
+                  priority={selectedPriority}
                 >
                   {priority}
                 </ButtonComp>
@@ -54,9 +58,7 @@ const ModalComp = ({ title, open, handleClose, children }: ITodoModal) => {
             })}
           </div>
           <div>
-            <ButtonComp onClickFunc={() => addTodo(todoInput)} color={colors.gray}>
-              Add
-            </ButtonComp>
+            <ButtonComp color={colors.gray}>Add</ButtonComp>
           </div> */}
         </Styled.ModalComp>
       </Box>

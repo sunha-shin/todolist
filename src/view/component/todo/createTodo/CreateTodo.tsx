@@ -21,6 +21,10 @@ const CreateTodo = () => {
   const handleClose = () => setOpen(false);
   const dispatch = useAppDispatch();
 
+  const onClickDifficulty = (difficulty: string) => {
+    setTodoInput({ ...todoInput, priority: difficulty });
+  };
+
   const addTodo = () => {
     if (!todoInput.title) {
       alert('Enter title');
@@ -31,46 +35,37 @@ const CreateTodo = () => {
     setTodoInput({});
   };
 
-  const onClickDifficulty = (difficulty: string) => {
-    setTodoInput({ ...todoInput, priority: difficulty });
-  };
-
   return (
     <Styled.CreateTodo>
       <button className="addTaskBtn" onClick={handleOpen}>
         + Add Task
       </button>
       <ModalComp title={'Add Task'} open={open} handleClose={handleClose}>
-        <div>
-          <div>Task</div>
-          <Input
-            type={'text'}
-            name={'title'}
-            value={todoInput.title}
-            placeholder={'Type your task here...'}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
-            }}
-            dataTestId={'data1'}
-          />
-        </div>
-        <div>
-          <div className="">Priority</div>
-          {difficulties.map((priority: string) => {
-            const btnClicked = todoInput.priority === priority;
-            return (
-              <ButtonComp
-                color={btnClicked ? colors.white : colors[priority]}
-                $backgroundColor={btnClicked ? colors[priority] : colors.white}
-                onClickFunc={() => onClickDifficulty(priority)}
-                key={priority}
-                priority={todoInput.priority}
-              >
-                {priority}
-              </ButtonComp>
-            );
-          })}
-        </div>
+        <Input
+          type={'text'}
+          name={'title'}
+          value={todoInput.title}
+          placeholder={'Type your task here...'}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
+          }}
+          dataTestId={'data1'}
+        />
+        <div className="label">Priority</div>
+        {difficulties.map((priority: string) => {
+          const btnClicked = todoInput.priority === priority;
+          return (
+            <ButtonComp
+              color={btnClicked ? colors.white : colors[priority]}
+              $backgroundColor={btnClicked ? colors[priority] : colors.white}
+              onClickFunc={() => onClickDifficulty(priority)}
+              key={priority}
+              priority={todoInput.priority}
+            >
+              {priority}
+            </ButtonComp>
+          );
+        })}
         <div>
           <ButtonComp onClickFunc={addTodo} color={colors.gray}>
             Add
@@ -79,38 +74,6 @@ const CreateTodo = () => {
       </ModalComp>
     </Styled.CreateTodo>
   );
-
-  // console.log('createtodo');
-  // const dispatch = useAppDispatch();
-  // const [createTodoInput, setCreateTodoInput] = useState<Partial<Todo>>({
-  //   title: '',
-  // });
-  // const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value, name } = e.target;
-  //   setCreateTodoInput({ ...createTodoInput, [name]: value });
-  // };
-  // const onClick = () => {
-  //   // validation
-  //   if (!createTodoInput.title) {
-  //     alert('Enter title');
-  //     return;
-  //   }
-  //   dispatch(createTodo({ ...createTodoInput, id: nanoid(), isCompleted: 0 }));
-  //   setCreateTodoInput({ ...createTodoInput, title: '' });
-  // };
-  // return (
-  //   <div>
-  //     <Input
-  //       type={'text'}
-  //       name={'title'}
-  //       value={createTodoInput.title}
-  //       placeholder={'Enter todo'}
-  //       onChange={onChange}
-  //       dataTestId={'data1'}
-  //     />
-  //     <Button onClick={onClick}>Create Todo</Button>
-  //   </div>
-  // );
 };
 
 export default CreateTodo;

@@ -18,4 +18,8 @@ export const CreateTodo = styled.div`
       color: white;
     }
   }
+
+  &.label {
+    border: 10px solid red;
+  }
 `;

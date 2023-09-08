@@ -3,11 +3,14 @@ import { useState } from 'react';
 import { deleteTodo, updateTodo } from 'redux/todo/todoAction';
 import { Todo } from 'service/model/Todo';
 import { useAppSelector, useAppDispatch } from 'service/store';
-import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import { EditIcon, TrashCanIcon } from 'resource/icons';
 import { todoIsCompeted } from 'service/model/Todo';
 import Input from 'view/component/common/input/InputComp';
+import ModalComp from 'view/component/common/modal/ModalComp';
+import { difficulties } from 'service/const/general';
+import ButtonComp from 'view/component/common/button/ButtonComp';
+import { colors } from 'GlobalStyle';
 
 const ShowTodo = () => {
   const dispatch = useAppDispatch();
@@ -20,6 +23,15 @@ const ShowTodo = () => {
     priority: '',
   });
   const [showUpdateInput, setShowUpdateInput] = useState<boolean>(false);
+
+  const [open, setOpen] = useState<boolean>(false);
+  const [todoInput, setTodoInput] = useState<Partial<Todo>>({
+    title: '',
+    priority: '',
+  });
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   // update todo
   const changeTodo = () => {
@@ -90,17 +102,52 @@ const ShowTodo = () => {
         );
       })}
       {showUpdateInput && (
-        <>
-          <Input
-            type={'text'}
-            name={'title'}
-            value={updateTodoInput.title}
-            placeholder={'title'}
-            onChange={onChangeUpdate}
-            dataTestId={'data1'}
-          />
-          <button onClick={changeTodo}>update todo</button>
-        </>
+        <ModalComp title={'Add Task'} open={open} handleClose={handleClose}>
+          <div>
+            <div>Task</div>
+            <Input
+              type={'text'}
+              name={'title'}
+              value={todoInput.title}
+              placeholder={'Type your task here...'}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
+              }}
+              dataTestId={'data1'}
+            />
+          </div>
+          <div>
+            <div className="">Priority</div>
+            {difficulties.map((priority: string) => {
+              const btnClicked = todoInput.priority === priority;
+              return (
+                <ButtonComp
+                  color={btnClicked ? colors.white : colors[priority]}
+                  $backgroundColor={btnClicked ? colors[priority] : colors.white}
+                  // onClickFunc={() => onClickDifficulty(priority)}
+                  key={priority}
+                  priority={todoInput.priority}
+                >
+                  {priority}
+                </ButtonComp>
+              );
+            })}
+          </div>
+          <div>
+            <ButtonComp color={colors.gray}>Add</ButtonComp>
+          </div>
+        </ModalComp>
+        // <>
+        //   <Input
+        //     type={'text'}
+        //     name={'title'}
+        //     value={updateTodoInput.title}
+        //     placeholder={'title'}
+        //     onChange={onChangeUpdate}
+        //     dataTestId={'data1'}
+        //   />
+        //   <button onClick={changeTodo}>update todo</button>
+        // </>
       )}
     </Styled.ShowTodo>
   );
