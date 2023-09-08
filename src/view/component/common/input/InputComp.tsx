@@ -8,21 +8,16 @@ export interface IInputProps {
   placeholder?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   dataTestId: string;
-  className?: string;
-  style?: any;
 }
 
 const Input = ({
   type = 'text',
-  style = {},
   name,
   value,
   placeholder = 'please type todo title',
   onChange,
   dataTestId,
-  className = '',
 }: IInputProps) => {
-  console.log(className);
   return (
     <Styled.InputComp
       type={type}
@@ -31,8 +26,6 @@ const Input = ({
       placeholder={placeholder}
       onChange={onChange}
       data-testid={dataTestId}
-      className={className}
-      style={style}
     />
   );
 };

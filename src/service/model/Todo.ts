@@ -1,13 +1,11 @@
-import CircularProgress from '@mui/material/CircularProgress';
-
 export interface Todo {
   id: string | number;
   title: string | number;
   isCompleted?: number;
-  priority: number;
+  priority: string;
 }
 
-export const todoIsCompeted: string[] = ['Todo', 'InProgress', 'Done', 'aaa'];
+export const todoIsCompeted: string[] = ['Todo', 'InProgress', 'Done'];
 // export const todoIsCompletedIcon: any[] = [<CircularProgress />]
 
 // interface User {

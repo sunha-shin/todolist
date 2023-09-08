@@ -2,7 +2,6 @@ import ShowTodo from '../../todo/showTodo/ShowTodo';
 import * as Styled from './Body.Styled';
 
 const Body = () => {
-  console.log('body');
   return (
     <Styled.Body>
       <div className="body-container">

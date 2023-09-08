@@ -51,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     background-color: ${colors.lightGray};
     color: ${colors.black};
+    font-family: Poppins,sans-serif;
   } 
 
   a {

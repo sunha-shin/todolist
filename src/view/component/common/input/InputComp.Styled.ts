@@ -9,8 +9,5 @@ export const InputComp = styled.input<Partial<IInputProps>>`
   font-weight: 400;
   outline: none;
   padding: 16px 18px;
-  width: 95%;
-
-  &.a {
-  }
+  /* width: 100%; */
 `;

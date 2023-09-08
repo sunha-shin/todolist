@@ -17,10 +17,9 @@ const ShowTodo = () => {
     id: '',
     title: '',
     isCompleted: 0,
-    priority: 0,
+    priority: '',
   });
   const [showUpdateInput, setShowUpdateInput] = useState<boolean>(false);
-  console.log(updateTodoInput);
 
   // update todo
   const changeTodo = () => {
@@ -69,10 +68,12 @@ const ShowTodo = () => {
             </div>
             <div className="priority-wrapper">
               <div className="task-top-text">Priority</div>
-              <div className="task-text">High</div>
+              <div className="task-text">{todo.priority}</div>
             </div>
             <div className="task-status-wrapper">
-              <Button onClick={() => completeTodo(todo)}>{todoIsCompeted[todo.isCompleted as number]}</Button>
+              <div className="task-status-btn" onClick={() => completeTodo(todo)}>
+                {todoIsCompeted[todo.isCompleted as number]}
+              </div>
             </div>
             <div className="progress-bar-wrapper">
               <CircularProgress variant="determinate" value={100} size={'24px'} />

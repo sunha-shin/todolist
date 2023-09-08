@@ -10,15 +10,17 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
     background-color: white;
     /* background: ${(props) => props.background}; */
     border-radius: 24px;
-    box-shadow: 0 6px 58px rgba(196, 203, 214, 0.104);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
     padding: 22px 30px;
-
+    column-gap: 50px;
     .task-wrapper {
-      width: 35%;
+      /* border: 2px solid red; */
+      /* width: 35%; */
+      /* min-width: ; */
+      width: 100%;
       /* width: 200px; */
       /* min-width: 200px; */
       /* max-width: 200px; */
@@ -46,30 +48,54 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
     }
 
     .priority-wrapper {
-      width: 20%;
+      /* border: 2px solid red; */
+      /* max-width: 100px; */
+      /* width: 20%; */
+      min-width: 100px;
       text-align: center;
       /* width: 50px;
       min-width: 50px; */
     }
 
     .task-status-wrapper {
-      width: 20%;
+      /* border: 2px solid red; */
+      /* width: 20%; */
+      min-width: 100px;
       display: flex;
       justify-content: center;
       text-align: center;
     }
+
+    .task-status-btn {
+      color: ${colors.gray};
+      background-color: ${colors.lightGray};
+      background: hsla(217, 9%, 53%, 0.14);
+      border-radius: 8px;
+
+      font-size: 12px;
+      font-weight: 700;
+      outline: none;
+      padding: 7px 14px;
+      cursor: pointer;
+    }
+
     .progress-bar-wrapper {
-      width: 10%;
+      /* border: 2px solid red; */
+      /* width: 10%; */
+      min-width: 75px;
       text-align: center;
     }
 
     .buttons-wrapper {
-      width: 15%;
+      /* border: 2px solid red; */
+      /* width: 15%; */
+
+      min-width: 75px;
       display: flex;
-      justify-content: end;
+      justify-content: space-between;
+      /* justify-content: end; */
 
       .update-btn {
-        margin-right: 20px;
         cursor: pointer;
       }
 

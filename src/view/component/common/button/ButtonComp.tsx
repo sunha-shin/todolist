@@ -8,6 +8,8 @@ export interface IButtonCompProps {
   height?: string;
   $backgroundColor?: string;
   children: React.ReactNode;
+  onClickFunc?: () => void;
+  priority?: string;
 }
 
 const ButtonComp = ({
@@ -16,9 +18,16 @@ const ButtonComp = ({
   height = '35px',
   $backgroundColor = colors.white,
   children,
+  onClickFunc = () => null,
 }: IButtonCompProps) => {
   return (
-    <Styled.Button color={color} width={width} height={height} $backgroundColor={$backgroundColor}>
+    <Styled.Button
+      onClick={onClickFunc}
+      color={color}
+      width={width}
+      height={height}
+      $backgroundColor={$backgroundColor}
+    >
       {children}
     </Styled.Button>
   );

@@ -9,4 +9,5 @@ export const Button = styled.button<Partial<IButtonCompProps>>`
   border-radius: 5px;
   outline: none;
   border: 1px solid ${(props) => props.color};
+  cursor: pointer;
 `;
