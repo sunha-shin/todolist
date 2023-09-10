@@ -6,52 +6,47 @@ import { useAppSelector, useAppDispatch } from 'service/store';
 import CircularProgress from '@mui/material/CircularProgress';
 import { EditIcon, TrashCanIcon } from 'resource/icons';
 import { todoIsCompeted } from 'service/model/Todo';
-import Input from 'view/component/common/input/InputComp';
-import ModalComp from 'view/component/common/modal/ModalComp';
-import { difficulties } from 'service/const/general';
-import ButtonComp from 'view/component/common/button/ButtonComp';
-import { colors } from 'GlobalStyle';
 import UpdateTodo from '../updateTodo/UpdateTodo';
 
 const ShowTodo = () => {
   const dispatch = useAppDispatch();
   const { todoList } = useAppSelector((state) => state?.todoReducer);
+  const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
+  const [updateId, setUpdateId] = useState<Todo['id']>('');
 
-  const [updateTodoInput, setUpdateTodoInput] = useState<Todo>({
-    id: '',
-    title: '',
-    isCompleted: 0,
-    priority: '',
-  });
-  const [showUpdateInput, setShowUpdateInput] = useState<boolean>(false);
+  const handleUpdateOpen = (id: Todo['id']) => {
+    setUpdateId(id);
+    setOpenUpdateModal(true);
+  };
+  const handleUpdateClose = () => setOpenUpdateModal(false);
 
-  const [open, setOpen] = useState<boolean>(false);
-  const [todoInput, setTodoInput] = useState<Partial<Todo>>({
-    title: '',
-    priority: '',
-  });
+  // const [open, setOpen] = useState<boolean>(false);
+  // const [todoInput, setTodoInput] = useState<Partial<Todo>>({
+  //   title: '',
+  //   priority: '',
+  // });
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
 
   // update todo
-  const changeTodo = () => {
-    dispatch(updateTodo(updateTodoInput));
-    setShowUpdateInput(false);
-  };
+  // const changeTodo = () => {
+  //   dispatch(updateTodo(updateTodoInput));
+  //   setShowUpdateInput(false);
+  // };
 
-  const onChangeUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setUpdateTodoInput({ ...updateTodoInput, [name]: value });
-  };
+  // const onChangeUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setUpdateTodoInput({ ...updateTodoInput, [name]: value });
+  // };
 
-  const clickUpdate = (todo: Todo) => {
-    setUpdateTodoInput({
-      ...updateTodoInput,
-      ...todo,
-    });
-    setShowUpdateInput(true);
-  };
+  // const clickUpdate = (todo: Todo) => {
+  //   setUpdateTodoInput({
+  //     ...updateTodoInput,
+  //     ...todo,
+  //   });
+  //   setShowUpdateInput(true);
+  // };
 
   const completeTodo = (todo: Todo) => {
     let tempTodo: Todo;
@@ -92,7 +87,7 @@ const ShowTodo = () => {
               <CircularProgress variant="determinate" value={100} size={'24px'} />
             </div>
             <div className="buttons-wrapper">
-              <div className="update-btn" onClick={() => clickUpdate(todo)}>
+              <div className="update-btn" onClick={() => handleUpdateOpen(todo.id)}>
                 <EditIcon />
               </div>
               <div className="delete-btn" onClick={() => clickDelete(todo.id)}>
@@ -102,7 +97,7 @@ const ShowTodo = () => {
           </section>
         );
       })}
-      {showUpdateInput && <UpdateTodo />}
+      {openUpdateModal && <UpdateTodo open={openUpdateModal} handleClose={handleUpdateClose} id={updateId} />}
     </Styled.ShowTodo>
   );
 };

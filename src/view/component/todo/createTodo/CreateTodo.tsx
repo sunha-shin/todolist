@@ -27,7 +27,7 @@ const CreateTodo = () => {
 
   const addTodo = () => {
     if (!todoInput.title) {
-      alert('Enter title');
+      alert('Enter task');
       return;
     }
     dispatch(createTodo({ ...todoInput, id: nanoid(), isCompleted: 0 }));

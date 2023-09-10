@@ -1,3 +1,3 @@
 import styled from 'styled-components';
 
-export const ShowTodo = styled.div``;
+export const UpdateTodo = styled.div``;

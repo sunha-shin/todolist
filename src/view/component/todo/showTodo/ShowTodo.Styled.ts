@@ -54,7 +54,7 @@ export const ShowTodo = styled.div<ShowTodoStyle>`
     .task-status-btn {
       color: ${colors.gray};
       background-color: ${colors.lightGray};
-      background: hsla(217, 9%, 53%, 0.14);
+      /* background: hsla(217, 9%, 53%, 0.14); */
       border-radius: 8px;
 
       font-size: 12px;
