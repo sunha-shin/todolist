@@ -18,7 +18,7 @@ export const Header = styled.header`
   .title {
     color: ${colors.white};
     font-size: 36px;
-    font-weight: 700;
+    font-family: PoppinsBold;
 
     ${getResponsiveMediaQuery('sm')} {
       font-size: 20px;

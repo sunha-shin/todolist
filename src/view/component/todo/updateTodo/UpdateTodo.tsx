@@ -56,6 +56,7 @@ const UpdateTodo = ({ open, handleClose, selectedTodo }: IUpdateTodo) => {
               <ButtonComp
                 color={btnClicked ? white : getColor(priority)}
                 $backgroundColor={btnClicked ? getColor(priority) : white}
+                $borderColor={getColor(priority)}
                 onClickFunc={() => onClickDifficulty(priority)}
                 key={priority}
                 priority={updatedInput.priority}

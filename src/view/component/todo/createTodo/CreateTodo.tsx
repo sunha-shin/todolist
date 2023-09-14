@@ -61,6 +61,7 @@ const CreateTodo = () => {
               <ButtonComp
                 color={btnClicked ? white : getColor(priority)}
                 $backgroundColor={btnClicked ? getColor(priority) : white}
+                $borderColor={getColor(priority)}
                 onClickFunc={() => onClickDifficulty(priority)}
                 key={priority}
                 priority={todoInput.priority}

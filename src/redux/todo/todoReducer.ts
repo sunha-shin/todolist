@@ -11,9 +11,9 @@ interface TodoStateType {
 const INITIAL_STATE: TodoStateType = {
   todoList: [
     { id: '1', title: 'Go to gym', priority: 'high', isCompleted: 'Todo' },
-    { id: '2', title: 'Read a book', priority: 'low', isCompleted: 'In progress' },
-    { id: '3', title: 'Go to market', priority: 'high', isCompleted: 'In progress' },
-    { id: '4', title: 'Restart Learning Solid works', priority: 'low', isCompleted: 'In progress' },
+    { id: '2', title: 'Read a book', priority: 'low', isCompleted: 'In Progress' },
+    { id: '3', title: 'Go to market', priority: 'high', isCompleted: 'In Progress' },
+    { id: '4', title: 'Restart Learning Solid works', priority: 'low', isCompleted: 'Done' },
     { id: '5', title: 'Change slider to scroll', priority: 'medium', isCompleted: 'Done' },
     { id: '6', title: 'To publish the article', priority: 'high', isCompleted: 'Todo' },
     {

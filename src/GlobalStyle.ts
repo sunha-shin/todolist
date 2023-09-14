@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createGlobalStyle } from 'styled-components';
+import PoppinsBold from 'asset/font/Poppins-Bold.ttf';
+import PoppinsRegular from 'asset/font/Poppins-Regular.ttf';
 
 type ColorsType = {
   [key: string]: any;
@@ -51,24 +53,37 @@ export const getResponsiveMediaQuery = (size: string) => {
 };
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: ${colors.lightGray};
-    color: ${colors.black};
-    font-family: Poppins,sans-serif;
-  } 
+@font-face {
+  font-family: PoppinsBold;
+  src: url(${PoppinsBold}) format('truetype');
+}
+@font-face {
+  font-family: PoppinsRegular;
+  src: url(${PoppinsRegular}) format('truetype');
+}
 
-  a {
-    text-decoration: none;
-    color: ${colors.black};
-  }
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: ${colors.lightGray};
+  color: ${colors.black};
+  font-family: PoppinsRegular;
+} 
 
-  :root {
-    font-size: 16px;
-    /* --var-background-black:#000; */
-  }
+a {
+  text-decoration: none;
+  color: ${colors.black};
+}
+
+:root {
+  font-size: 16px;
+  /* --var-background-black:#000; */
+}
+
+::-webkit-scrollbar {
+display: none;
+}
 `;
 
 export default GlobalStyle;
