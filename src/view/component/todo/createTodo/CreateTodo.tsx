@@ -8,7 +8,8 @@ import ModalComp from 'view/component/common/modal/ModalComp';
 import { colors } from 'GlobalStyle';
 import Input from 'view/component/common/input/InputComp';
 import ButtonComp from 'view/component/common/button/ButtonComp';
-import { difficulties } from 'service/const/general';
+import { difficulties, todoIsCompleted } from 'service/const/general';
+import { getColor } from 'service/util/getColor';
 
 const CreateTodo = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -16,6 +17,7 @@ const CreateTodo = () => {
     title: '',
     priority: '',
   });
+  const { white, gray } = colors;
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -30,7 +32,7 @@ const CreateTodo = () => {
       alert('Enter task');
       return;
     }
-    dispatch(createTodo({ ...todoInput, id: nanoid(), isCompleted: 0 }));
+    dispatch(createTodo({ ...todoInput, id: nanoid(), isCompleted: todoIsCompleted[0] }));
     handleClose();
     setTodoInput({});
   };
@@ -51,23 +53,25 @@ const CreateTodo = () => {
           }}
           dataTestId={'data1'}
         />
-        <div className="label">Priority</div>
-        {difficulties.map((priority: string) => {
-          const btnClicked = todoInput.priority === priority;
-          return (
-            <ButtonComp
-              color={btnClicked ? colors.white : colors[priority]}
-              $backgroundColor={btnClicked ? colors[priority] : colors.white}
-              onClickFunc={() => onClickDifficulty(priority)}
-              key={priority}
-              priority={todoInput.priority}
-            >
-              {priority}
-            </ButtonComp>
-          );
-        })}
-        <div>
-          <ButtonComp onClickFunc={addTodo} color={colors.gray}>
+        <div className="modalLabel priorityMarginTop">Priority</div>
+        <div className="priorityBtns">
+          {difficulties.map((priority: string) => {
+            const btnClicked = todoInput.priority === priority;
+            return (
+              <ButtonComp
+                color={btnClicked ? white : getColor(priority)}
+                $backgroundColor={btnClicked ? getColor(priority) : white}
+                onClickFunc={() => onClickDifficulty(priority)}
+                key={priority}
+                priority={todoInput.priority}
+              >
+                {priority}
+              </ButtonComp>
+            );
+          })}
+        </div>
+        <div className="addBtn">
+          <ButtonComp onClickFunc={addTodo} color={white} $backgroundColor={gray}>
             Add
           </ButtonComp>
         </div>

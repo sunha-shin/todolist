@@ -11,7 +11,7 @@ export type CreateTodoAction = {
 
 export type DeleteTodoAction = {
   type: typeof DELETE_TODO;
-  payload: string | number;
+  payload: string;
 };
 
 export type UpdateTodoAction = {

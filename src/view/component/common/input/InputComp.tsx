@@ -5,7 +5,7 @@ import { Todo } from 'service/model/Todo';
 export interface IInputProps {
   type?: string;
   name: string;
-  value?: string | number;
+  value?: string;
   defaultValue?: Todo['title'];
   placeholder?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

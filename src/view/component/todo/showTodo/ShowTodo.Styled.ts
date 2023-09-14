@@ -2,7 +2,8 @@ import { colors } from 'GlobalStyle';
 import styled from 'styled-components';
 
 interface ShowTodoStyle {
-  background: string;
+  background?: string;
+  priorityColor?: string;
 }
 
 export const ShowTodo = styled.div<ShowTodoStyle>`

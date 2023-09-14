@@ -3,101 +3,67 @@ import { useState } from 'react';
 import { deleteTodo, updateTodo } from 'redux/todo/todoAction';
 import { Todo } from 'service/model/Todo';
 import { useAppSelector, useAppDispatch } from 'service/store';
-import CircularProgress from '@mui/material/CircularProgress';
-import { EditIcon, TrashCanIcon } from 'resource/icons';
-import { todoIsCompeted } from 'service/model/Todo';
 import UpdateTodo from '../updateTodo/UpdateTodo';
+import TaskCard from './TaskCard';
+import { todoIsCompleted } from 'service/const/general';
 
 const ShowTodo = () => {
   const dispatch = useAppDispatch();
   const { todoList } = useAppSelector((state) => state?.todoReducer);
   const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
-  const [updateId, setUpdateId] = useState<Todo['id']>('');
+  const [selectedTodo, setSelectedTodo] = useState<Todo>({} as Todo);
+  // const [progress, setProgress] = useState<number>(100);
 
-  const handleUpdateOpen = (id: Todo['id']) => {
-    setUpdateId(id);
+  const handleUpdateOpen = (todo: Todo) => {
+    setSelectedTodo(todo);
     setOpenUpdateModal(true);
   };
   const handleUpdateClose = () => setOpenUpdateModal(false);
 
-  // const [open, setOpen] = useState<boolean>(false);
-  // const [todoInput, setTodoInput] = useState<Partial<Todo>>({
-  //   title: '',
-  //   priority: '',
-  // });
-
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-
-  // update todo
-  // const changeTodo = () => {
-  //   dispatch(updateTodo(updateTodoInput));
-  //   setShowUpdateInput(false);
-  // };
-
-  // const onChangeUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setUpdateTodoInput({ ...updateTodoInput, [name]: value });
-  // };
-
-  // const clickUpdate = (todo: Todo) => {
-  //   setUpdateTodoInput({
-  //     ...updateTodoInput,
-  //     ...todo,
-  //   });
-  //   setShowUpdateInput(true);
-  // };
-
   const completeTodo = (todo: Todo) => {
-    let tempTodo: Todo;
+    let tempTodo: Todo = { ...todo };
 
-    if ((todo.isCompleted as number) === todoIsCompeted.length - 1) {
-      tempTodo = { ...todo, isCompleted: 0 };
+    let index = todoIsCompleted.indexOf(tempTodo.isCompleted);
+    if (index === todoIsCompleted.length - 1) {
+      index = 0;
     } else {
-      tempTodo = { ...todo, isCompleted: (todo?.isCompleted as number) + 1 };
+      index += 1;
     }
 
+    // 0 --> todo --> 0%
+    // 1 --> in pro-> 50%
+    // 2 --> Done --> 100%
+
+    // if (index === 0) setProgress(0);
+    // if (index === 1) setProgress(50);
+    // if (index === 2) setProgress(100);
+
+    tempTodo = { ...todo, isCompleted: todoIsCompleted[index] };
     dispatch(updateTodo(tempTodo));
   };
 
   // delete todo
-  const clickDelete = (id: string | number) => {
+  const clickDelete = (id: string) => {
     dispatch(deleteTodo(id));
   };
 
   return (
-    <Styled.ShowTodo background={'red'}>
+    <Styled.ShowTodo>
       {todoList.map((todo: Todo) => {
         return (
-          <section className="task-card" key={todo.id}>
-            <div className="task-wrapper">
-              <div className="task-top-text">Task</div>
-              <div className="task-text">{todo.title}</div>
-            </div>
-            <div className="priority-wrapper">
-              <div className="task-top-text">Priority</div>
-              <div className="task-text">{todo.priority}</div>
-            </div>
-            <div className="task-status-wrapper">
-              <div className="task-status-btn" onClick={() => completeTodo(todo)}>
-                {todoIsCompeted[todo.isCompleted as number]}
-              </div>
-            </div>
-            <div className="progress-bar-wrapper">
-              <CircularProgress variant="determinate" value={100} size={'24px'} />
-            </div>
-            <div className="buttons-wrapper">
-              <div className="update-btn" onClick={() => handleUpdateOpen(todo.id)}>
-                <EditIcon />
-              </div>
-              <div className="delete-btn" onClick={() => clickDelete(todo.id)}>
-                <TrashCanIcon />
-              </div>
-            </div>
-          </section>
+          <TaskCard
+            key={todo.id}
+            todo={todo}
+            completeTodo={completeTodo}
+            handleUpdateOpen={handleUpdateOpen}
+            clickDelete={clickDelete}
+            // progress={progress}
+          />
         );
       })}
-      {openUpdateModal && <UpdateTodo open={openUpdateModal} handleClose={handleUpdateClose} id={updateId} />}
+      {openUpdateModal && (
+        <UpdateTodo open={openUpdateModal} handleClose={handleUpdateClose} selectedTodo={selectedTodo} />
+      )}
     </Styled.ShowTodo>
   );
 };

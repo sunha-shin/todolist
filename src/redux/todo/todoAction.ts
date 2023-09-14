@@ -10,7 +10,7 @@ export const createTodo = (todo: Partial<Todo>): CreateTodoAction => {
   };
 };
 
-export const deleteTodo = (id: string | number): DeleteTodoAction => {
+export const deleteTodo = (id: string): DeleteTodoAction => {
   return {
     type: DELETE_TODO,
     payload: id,

@@ -1,13 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createGlobalStyle } from 'styled-components';
 
 type ColorsType = {
-  [key: string]: string;
+  [key: string]: any;
 };
 
 export const colors: ColorsType = {
-  high: '#f73446',
-  medium: '#ffbd21',
-  low: '#0ac947',
+  priority: {
+    high: '#f73446',
+    medium: '#ffbd21',
+    low: '#0ac947',
+  },
+  red: '#f73446',
+  yellow: '#ffbd21',
+  green: '#0ac947',
   primary: '#713fff',
   black: '#0a1629',
   gray: '#91929e',
