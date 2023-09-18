@@ -1,4 +1,4 @@
-import { globalHorizontalPadding, globalMaxWidth } from 'GlobalStyle';
+import { globalHorizontalPadding, globalMaxWidth, getResponsiveMediaQuery } from 'GlobalStyle';
 import styled from 'styled-components';
 
 export const App = styled.div`
@@ -6,6 +6,10 @@ export const App = styled.div`
     min-height: 100vh;
     max-width: ${globalMaxWidth};
     margin: 0 auto;
-    padding: 0 ${globalHorizontalPadding.web} ${globalHorizontalPadding.web};
+    padding: 0 ${globalHorizontalPadding.web};
+
+    ${getResponsiveMediaQuery('sm')} {
+      padding: 0 ${globalHorizontalPadding.mobile};
+    }
   }
 `;

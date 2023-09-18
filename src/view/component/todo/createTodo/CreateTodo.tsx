@@ -28,8 +28,8 @@ const CreateTodo = () => {
   };
 
   const addTodo = () => {
-    if (!todoInput.title) {
-      alert('Enter task');
+    if (!todoInput.title || !todoInput.priority) {
+      alert('Enter all required fields');
       return;
     }
     dispatch(createTodo({ ...todoInput, id: nanoid(), isCompleted: todoIsCompleted[0] }));

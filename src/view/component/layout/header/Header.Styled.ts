@@ -3,16 +3,21 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   background-color: ${colors.purple};
-  /* padding: 0 300px; */
 
   .container {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     max-width: ${globalMaxWidth};
     margin: 0 auto;
     padding: 0 ${globalHorizontalPadding.web};
+    min-height: 115px;
+
+    ${getResponsiveMediaQuery('sm')} {
+      padding: 0 ${globalHorizontalPadding.mobile};
+    }
   }
 
   .title {
@@ -21,15 +26,12 @@ export const Header = styled.header`
     font-family: PoppinsBold;
 
     ${getResponsiveMediaQuery('sm')} {
-      font-size: 20px;
-      color: red;
-      /* border: 1px solid black; */
+      font-size: 24px;
     }
 
-    ${getResponsiveMediaQuery('md')} {
+    /* ${getResponsiveMediaQuery('md')} {
       font-size: 20px;
       color: blue;
-      /* border: 1px solid black; */
-    }
+    } */
   }
 `;

@@ -1,4 +1,4 @@
-import { colors } from 'GlobalStyle';
+import { colors, getResponsiveMediaQuery } from 'GlobalStyle';
 import { getColor } from 'service/util/getColor';
 import styled from 'styled-components';
 
@@ -15,6 +15,13 @@ export const ShowTodo = styled.section<TaskCardStyle>`
   margin-top: 15px;
   padding: 22px 30px;
   column-gap: 50px;
+  min-height: 56px;
+
+  ${getResponsiveMediaQuery('sm')} {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+  }
 
   .task-wrapper {
     width: 100%;
@@ -44,6 +51,10 @@ export const ShowTodo = styled.section<TaskCardStyle>`
     min-width: 100px;
     text-align: center;
 
+    ${getResponsiveMediaQuery('sm')} {
+      text-align: left;
+    }
+
     .task-text {
       color: ${(props) => getColor(props.priority)};
       font-weight: 700;
@@ -56,12 +67,15 @@ export const ShowTodo = styled.section<TaskCardStyle>`
     display: flex;
     justify-content: center;
     text-align: center;
+
+    ${getResponsiveMediaQuery('sm')} {
+      justify-content: flex-start;
+    }
   }
 
   .task-status-btn {
     color: ${colors.gray};
     background-color: ${colors.lightGray};
-    /* background: hsla(217, 9%, 53%, 0.14); */
     border-radius: 8px;
 
     font-size: 12px;

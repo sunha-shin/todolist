@@ -32,21 +32,21 @@ export const globalHorizontalPadding = {
 };
 
 export const responsiveSize = {
-  sm: '480px',
-  md: '996px',
+  sm: '850px',
 };
 
 export const getResponsiveMediaQuery = (size: string) => {
   switch (size) {
     case 'sm':
-      // 0 - 480px
+      // 0 - 850px
       return `@media screen and (max-width: ${responsiveSize.sm})`;
-    case 'md':
-      // 481px - 996px
-      return `@media screen and (min-width: ${responsiveSize.sm}) and (max-width: ${responsiveSize.md})`;
-    case 'lg':
-      // 997px -
-      return `@media screen and (min-width: ${responsiveSize.md})`;
+
+    // case 'md':
+    //   // 481px - 996px
+    //   return `@media screen and (min-width: ${responsiveSize.sm}) and (max-width: ${responsiveSize.md})`;
+    // case 'lg':
+    //   // 997px -
+    //   return `@media screen and (min-width: ${responsiveSize.md})`;
     default:
       return '';
   }

@@ -3,7 +3,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Todo } from 'service/model/Todo';
 import * as Styled from './TaskCard.Styled';
 import { getIsCompleted } from 'service/util/getIsCompleted';
-import { todoIsCompleted } from 'service/const/general';
 
 interface ITaskCardProps {
   todo: Todo;
@@ -13,7 +12,6 @@ interface ITaskCardProps {
 }
 
 const TaskCard = ({ todo, completeTodo, handleUpdateOpen, clickDelete }: ITaskCardProps) => {
-  // const progressBarColor = todo.isCompleted === todoIsCompleted[0] ? 'inherit' : 'primary';
   return (
     <Styled.ShowTodo priority={todo.priority}>
       <div className="task-wrapper">

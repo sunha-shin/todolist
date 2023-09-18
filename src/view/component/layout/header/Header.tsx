@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import * as Styled from './Header.Styled';
 import CreateTodo from 'view/component/todo/createTodo/CreateTodo';
 

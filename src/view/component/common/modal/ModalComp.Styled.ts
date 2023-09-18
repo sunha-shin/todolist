@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from 'GlobalStyle';
+import { colors, getResponsiveMediaQuery } from 'GlobalStyle';
 
 export const ModalComp = styled.div`
   .title {
@@ -51,10 +51,12 @@ export const boxStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   borderRadius: '15px',
-  width: '40%',
+  width: '600px',
   bgcolor: 'background.paper',
   boxShadow: 24,
   minHeight: '200px',
   minWidth: '400px',
   p: 4,
+  outline: 'none',
+  // getResponsiveMediaQuery('sm'): {}
 };

@@ -12,7 +12,6 @@ const ShowTodo = () => {
   const { todoList } = useAppSelector((state) => state?.todoReducer);
   const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
   const [selectedTodo, setSelectedTodo] = useState<Todo>({} as Todo);
-  // const [progress, setProgress] = useState<number>(100);
 
   const handleUpdateOpen = (todo: Todo) => {
     setSelectedTodo(todo);
@@ -29,14 +28,6 @@ const ShowTodo = () => {
     } else {
       index += 1;
     }
-
-    // 0 --> todo --> 0%
-    // 1 --> in pro-> 50%
-    // 2 --> Done --> 100%
-
-    // if (index === 0) setProgress(0);
-    // if (index === 1) setProgress(50);
-    // if (index === 2) setProgress(100);
 
     tempTodo = { ...todo, isCompleted: todoIsCompleted[index] };
     dispatch(updateTodo(tempTodo));

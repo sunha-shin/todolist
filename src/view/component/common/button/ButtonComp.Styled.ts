@@ -8,5 +8,6 @@ export const Button = styled.button<Partial<IButtonCompProps>>`
   background-color: ${(props) => props.$backgroundColor};
   border-radius: 5px;
   border: 1px solid ${(props) => props.$borderColor};
+  font-family: PoppinsBold;
   cursor: pointer;
 `;
