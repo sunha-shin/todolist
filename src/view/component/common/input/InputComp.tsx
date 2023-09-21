@@ -17,7 +17,7 @@ const Input = ({
   name,
   value,
   defaultValue,
-  placeholder = 'please type todo title',
+  placeholder = 'Please type todo title',
   onChange,
   dataTestId,
 }: IInputProps) => {

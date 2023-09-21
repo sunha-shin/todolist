@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getResponsiveMediaQuery } from 'GlobalStyle';
+import { colors, getResponsiveMediaQuery } from 'GlobalStyle';
 
 export const CreateTodo = styled.div`
   ${getResponsiveMediaQuery('sm')} {
@@ -8,7 +8,6 @@ export const CreateTodo = styled.div`
   .addTaskBtn {
     border-radius: 14px;
     box-shadow: 0 6px 12px rgba(113, 63, 255, 0.25);
-    color: black;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
@@ -17,10 +16,12 @@ export const CreateTodo = styled.div`
     border: none;
     transition: all 0.3s;
     min-height: 50px;
+    background-color: ${colors.purple};
+    color: ${colors.white};
 
     &:hover {
-      background-color: red;
-      color: white;
+      background-color: ${colors.lightGray};
+      color: ${colors.purple};
     }
   }
 

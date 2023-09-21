@@ -28,10 +28,5 @@ export const Header = styled.header`
     ${getResponsiveMediaQuery('sm')} {
       font-size: 24px;
     }
-
-    /* ${getResponsiveMediaQuery('md')} {
-      font-size: 20px;
-      color: blue;
-    } */
   }
 `;

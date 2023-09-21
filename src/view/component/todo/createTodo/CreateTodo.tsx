@@ -17,10 +17,13 @@ const CreateTodo = () => {
     title: '',
     priority: '',
   });
-  const { white, gray } = colors;
+  const { white, purple } = colors;
 
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setTodoInput({});
+  };
   const dispatch = useAppDispatch();
 
   const onClickDifficulty = (difficulty: string) => {
@@ -34,13 +37,12 @@ const CreateTodo = () => {
     }
     dispatch(createTodo({ ...todoInput, id: nanoid(), isCompleted: todoIsCompleted[0] }));
     handleClose();
-    setTodoInput({});
   };
 
   return (
     <Styled.CreateTodo>
       <button className="addTaskBtn" onClick={handleOpen}>
-        + Add Task
+        Add Task
       </button>
       <ModalComp title={'Add Task'} open={open} handleClose={handleClose}>
         <Input
@@ -72,7 +74,7 @@ const CreateTodo = () => {
           })}
         </div>
         <div className="addBtn">
-          <ButtonComp onClickFunc={addTodo} color={white} $backgroundColor={gray}>
+          <ButtonComp onClickFunc={addTodo} color={white} $backgroundColor={purple}>
             Add
           </ButtonComp>
         </div>

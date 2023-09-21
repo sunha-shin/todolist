@@ -2,6 +2,25 @@ import styled from 'styled-components';
 import { colors, getResponsiveMediaQuery } from 'GlobalStyle';
 
 export const ModalComp = styled.div`
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 24px;
+  box-shadow: 0 6px 58px rgba(121, 145, 173, 0.196);
+  width: 40%;
+  min-width: 240px;
+  min-height: 200px;
+  background-color: ${colors.white};
+  outline: none;
+  padding: 40px 60px;
+  margin: 15% auto;
+
+  ${getResponsiveMediaQuery('sm')} {
+    padding: 40px;
+  }
+
   .title {
     display: flex;
     justify-content: space-between;
@@ -44,19 +63,3 @@ export const ModalComp = styled.div`
     justify-content: flex-end;
   }
 `;
-
-export const boxStyle = {
-  position: 'absolute' as const,
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  borderRadius: '15px',
-  width: '600px',
-  bgcolor: 'background.paper',
-  boxShadow: 24,
-  minHeight: '200px',
-  minWidth: '400px',
-  p: 4,
-  outline: 'none',
-  // getResponsiveMediaQuery('sm'): {}
-};

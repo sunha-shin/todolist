@@ -48,7 +48,6 @@ const ShowTodo = () => {
             completeTodo={completeTodo}
             handleUpdateOpen={handleUpdateOpen}
             clickDelete={clickDelete}
-            // progress={progress}
           />
         );
       })}

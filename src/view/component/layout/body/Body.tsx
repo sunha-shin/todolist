@@ -4,7 +4,7 @@ import * as Styled from './Body.Styled';
 const Body = () => {
   return (
     <Styled.Body>
-      <div className="body-container">
+      <div>
         <ShowTodo />
       </div>
     </Styled.Body>

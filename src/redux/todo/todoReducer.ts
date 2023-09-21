@@ -2,6 +2,7 @@ import { Reducer } from 'redux';
 import { Todo } from 'service/model/Todo';
 import { TODO_ACTION } from 'service/const/actionConst';
 import { TodoActionTypes } from './todoAction.interface';
+import { nanoid } from 'nanoid';
 const { CREATE_TODO, DELETE_TODO, UPDATE_TODO } = TODO_ACTION;
 
 interface TodoStateType {
@@ -10,18 +11,12 @@ interface TodoStateType {
 
 const INITIAL_STATE: TodoStateType = {
   todoList: [
-    { id: '1', title: 'Go to gym', priority: 'high', isCompleted: 'Todo' },
-    { id: '2', title: 'Read a book', priority: 'low', isCompleted: 'In Progress' },
-    { id: '3', title: 'Go to market', priority: 'high', isCompleted: 'In Progress' },
-    { id: '4', title: 'Restart Learning Solid works', priority: 'low', isCompleted: 'Done' },
-    { id: '5', title: 'Change slider to scroll', priority: 'medium', isCompleted: 'Done' },
-    { id: '6', title: 'To publish the article', priority: 'high', isCompleted: 'Todo' },
-    {
-      id: '7',
-      title: 'To publish the article To publish the articleTo publish the articleTo publish the article',
-      priority: 'low',
-      isCompleted: 'Todo',
-    },
+    { id: nanoid(), title: 'Go to gym', priority: 'high', isCompleted: 'Todo' },
+    { id: nanoid(), title: 'Read a book', priority: 'low', isCompleted: 'In Progress' },
+    { id: nanoid(), title: 'Go to market', priority: 'high', isCompleted: 'In Progress' },
+    { id: nanoid(), title: 'Restart Learning Solid works', priority: 'low', isCompleted: 'Done' },
+    { id: nanoid(), title: 'Change slider to scroll', priority: 'medium', isCompleted: 'Done' },
+    { id: nanoid(), title: 'To publish the article', priority: 'high', isCompleted: 'Todo' },
   ],
 };
 
