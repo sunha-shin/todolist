@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useAppDispatch } from 'service/store';
 import { Todo } from 'service/model/Todo';
-import { nanoid } from 'nanoid';
-import { createTodo } from 'redux/todo/todoAction';
+import { readTodo } from 'redux/todo/todoAction';
 import * as Styled from './CreateTodo.Styled';
 import ModalComp from 'view/component/common/modal/ModalComp';
 import { colors } from 'GlobalStyle';
 import Input from 'view/component/common/input/InputComp';
 import ButtonComp from 'view/component/common/button/ButtonComp';
-import { difficulties, todoIsCompleted } from 'service/const/general';
+import { difficulties } from 'service/const/general';
 import { getColor } from 'service/util/getColor';
+import { createTodoAPI, readTodosAPI } from 'api/todo';
 
 const CreateTodo = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -30,12 +30,14 @@ const CreateTodo = () => {
     setTodoInput({ ...todoInput, priority: difficulty });
   };
 
-  const addTodo = () => {
+  const createTodo = async () => {
     if (!todoInput.title || !todoInput.priority) {
       alert('Enter all required fields');
       return;
     }
-    dispatch(createTodo({ ...todoInput, id: nanoid(), isCompleted: todoIsCompleted[0] }));
+    await createTodoAPI(todoInput);
+    const result: Todo[] = await readTodosAPI();
+    dispatch(readTodo(result));
     handleClose();
   };
 
@@ -74,7 +76,7 @@ const CreateTodo = () => {
           })}
         </div>
         <div className="addBtn">
-          <ButtonComp onClickFunc={addTodo} color={white} $backgroundColor={purple}>
+          <ButtonComp onClickFunc={createTodo} color={white} $backgroundColor={purple}>
             Add
           </ButtonComp>
         </div>

@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as Styled from './ShowTodo.Styled';
-import { useState } from 'react';
-import { deleteTodo, updateTodo } from 'redux/todo/todoAction';
+import { useCallback, useEffect, useState } from 'react';
+import { readTodo } from 'redux/todo/todoAction';
 import { Todo } from 'service/model/Todo';
 import { useAppSelector, useAppDispatch } from 'service/store';
 import UpdateTodo from '../updateTodo/UpdateTodo';
 import TaskCard from './TaskCard';
-import { todoIsCompleted } from 'service/const/general';
+import { IResponse, deleteTodoAPI, readTodosAPI, updateProcessAPI } from 'api/todo';
 
 const ShowTodo = () => {
   const dispatch = useAppDispatch();
-  const { todoList } = useAppSelector((state) => state?.todoReducer);
+  const { todoList } = useAppSelector((state) => state.todoReducer);
   const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
   const [selectedTodo, setSelectedTodo] = useState<Todo>({} as Todo);
 
@@ -19,24 +20,27 @@ const ShowTodo = () => {
   };
   const handleUpdateClose = () => setOpenUpdateModal(false);
 
-  const completeTodo = (todo: Todo) => {
-    let tempTodo: Todo = { ...todo };
-
-    let index = todoIsCompleted.indexOf(tempTodo.isCompleted);
-    if (index === todoIsCompleted.length - 1) {
-      index = 0;
-    } else {
-      index += 1;
-    }
-
-    tempTodo = { ...todo, isCompleted: todoIsCompleted[index] };
-    dispatch(updateTodo(tempTodo));
+  const updateProcess = async (todo: Todo) => {
+    await updateProcessAPI(todo);
+    const result: Todo[] = await readTodosAPI();
+    dispatch(readTodo(result));
   };
 
-  // delete todo
-  const clickDelete = (id: string) => {
-    dispatch(deleteTodo(id));
+  // Read todo
+  const getAllTodos = useCallback(async () => {
+    const result: Todo[] = await readTodosAPI();
+    dispatch(readTodo(result));
+  }, [dispatch]);
+
+  // Delete todo
+  const deleteTodo = async (id: string) => {
+    const result: IResponse = await deleteTodoAPI(id);
+    await getAllTodos();
   };
+
+  useEffect(() => {
+    getAllTodos();
+  }, [getAllTodos]);
 
   return (
     <Styled.ShowTodo>
@@ -45,9 +49,9 @@ const ShowTodo = () => {
           <TaskCard
             key={todo.id}
             todo={todo}
-            completeTodo={completeTodo}
+            updateProcess={updateProcess}
             handleUpdateOpen={handleUpdateOpen}
-            clickDelete={clickDelete}
+            clickDelete={deleteTodo}
           />
         );
       })}

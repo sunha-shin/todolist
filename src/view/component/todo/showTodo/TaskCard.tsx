@@ -6,12 +6,12 @@ import { getIsCompleted } from 'service/util/getIsCompleted';
 
 interface ITaskCardProps {
   todo: Todo;
-  completeTodo: (todo: Todo) => void;
+  updateProcess: (todo: Todo) => void;
   handleUpdateOpen: (todo: Todo) => void;
   clickDelete: (id: string) => void;
 }
 
-const TaskCard = ({ todo, completeTodo, handleUpdateOpen, clickDelete }: ITaskCardProps) => {
+const TaskCard = ({ todo, updateProcess, handleUpdateOpen, clickDelete }: ITaskCardProps) => {
   return (
     <Styled.ShowTodo priority={todo.priority}>
       <div className="task-wrapper">
@@ -23,7 +23,7 @@ const TaskCard = ({ todo, completeTodo, handleUpdateOpen, clickDelete }: ITaskCa
         <div className="task-text">{todo.priority}</div>
       </div>
       <div className="task-status-wrapper">
-        <div className="task-status-btn" onClick={() => completeTodo(todo)}>
+        <div className="task-status-btn" onClick={() => updateProcess(todo)}>
           {todo.isCompleted}
         </div>
       </div>
