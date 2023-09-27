@@ -7,8 +7,9 @@ import ButtonComp from 'view/component/common/button/ButtonComp';
 import Input from 'view/component/common/input/InputComp';
 import ModalComp from 'view/component/common/modal/ModalComp';
 import * as Styled from './UpdateTodo.Styled';
-import { updateTodo } from 'redux/todo/todoAction';
+import { readTodo } from 'redux/todo/todoAction';
 import { getColor } from 'service/util/getColor';
+import { readTodosAPI, updateTodoAPI } from 'api/todo';
 
 export interface IUpdateTodo {
   selectedTodo: Todo;
@@ -25,12 +26,16 @@ const UpdateTodo = ({ open, handleClose, selectedTodo }: IUpdateTodo) => {
     setUpdatedInput({ ...updatedInput, priority: difficulty });
   };
 
-  const addTodo = () => {
-    if (!updatedInput.title) {
-      alert('Enter task');
+  const updateTodo = async () => {
+    if (!updatedInput.title || !updatedInput.priority) {
+      alert('Enter all required fields');
       return;
     }
-    dispatch(updateTodo({ ...updatedInput, title: updatedInput.title, priority: updatedInput.priority }));
+
+    await updateTodoAPI(updatedInput);
+    const result = await readTodosAPI();
+
+    dispatch(readTodo(result));
     handleClose();
     setUpdatedInput({ id: '', title: '', isCompleted: todoIsCompleted[0], priority: '' });
   };
@@ -67,7 +72,7 @@ const UpdateTodo = ({ open, handleClose, selectedTodo }: IUpdateTodo) => {
           })}
         </div>
         <div className="addBtn">
-          <ButtonComp onClickFunc={addTodo} color={white} $backgroundColor={purple}>
+          <ButtonComp onClickFunc={updateTodo} color={white} $backgroundColor={purple}>
             Edit
           </ButtonComp>
         </div>

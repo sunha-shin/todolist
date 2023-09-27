@@ -2,7 +2,12 @@ import { AnyAction } from 'redux';
 import { TODO_ACTION } from 'service/const/actionConst';
 import { Todo } from 'service/model/Todo';
 
-const { CREATE_TODO, DELETE_TODO, UPDATE_TODO } = TODO_ACTION;
+const { CREATE_TODO, READ_TODO, DELETE_TODO, UPDATE_TODO } = TODO_ACTION;
+
+export type ReadTodoAction = {
+  type: typeof READ_TODO;
+  payload: Todo[];
+};
 
 export type CreateTodoAction = {
   type: typeof CREATE_TODO;
@@ -19,4 +24,4 @@ export type UpdateTodoAction = {
   payload: Todo;
 };
 
-export type TodoActionTypes = AnyAction | CreateTodoAction | DeleteTodoAction | UpdateTodoAction;
+export type TodoActionTypes = AnyAction | CreateTodoAction | DeleteTodoAction | UpdateTodoAction | ReadTodoAction;

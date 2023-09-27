@@ -1,7 +1,14 @@
 import { TODO_ACTION } from 'service/const/actionConst';
-import { CreateTodoAction, DeleteTodoAction, UpdateTodoAction } from './todoAction.interface';
+import { CreateTodoAction, DeleteTodoAction, ReadTodoAction, UpdateTodoAction } from './todoAction.interface';
 import { Todo } from 'service/model/Todo';
-const { CREATE_TODO, DELETE_TODO, UPDATE_TODO } = TODO_ACTION;
+const { READ_TODO, CREATE_TODO, DELETE_TODO, UPDATE_TODO } = TODO_ACTION;
+
+export const readTodo = (todoList: Todo[]): ReadTodoAction => {
+  return {
+    type: READ_TODO,
+    payload: todoList,
+  };
+};
 
 export const createTodo = (todo: Partial<Todo>): CreateTodoAction => {
   return {
