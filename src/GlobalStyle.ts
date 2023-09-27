@@ -53,42 +53,6 @@ export const getResponsiveMediaQuery = (size: string) => {
 };
 
 const GlobalStyle = createGlobalStyle`
-<<<<<<< HEAD
-@font-face {
-  font-family: PoppinsBold;
-  src: url(${PoppinsBold}) format('truetype');
-}
-@font-face {
-  font-family: PoppinsRegular;
-  src: url(${PoppinsRegular}) format('truetype');
-}
-=======
-<<<<<<< Updated upstream
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: ${colors.lightGray};
-    color: ${colors.black};
-  } 
->>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: ${colors.lightGray};
-  color: ${colors.black};
-  font-family: PoppinsRegular;
-} 
-
-<<<<<<< HEAD
-=======
-  :root {
-    font-size: 16px;
-    /* --var-background-black:#000; */
-  }
-=======
 body {
   margin: 0;
   padding: 0;
@@ -97,29 +61,19 @@ body {
   color: ${colors.black};
   font-family: 'Poppins', sans-serif;
 } 
-
->>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
 a {
   text-decoration: none;
   color: ${colors.black};
 }
 
 :root {
-<<<<<<< HEAD
   font-size: 16px;
   /* --var-background-black:#000; */
-=======
-  font-size: 16px;  
->>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
 }
 
 ::-webkit-scrollbar {
 display: none;
 }
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
 `;
 
 export default GlobalStyle;

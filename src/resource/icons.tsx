@@ -25,11 +25,6 @@ export const EditIcon = () => {
     </svg>
   );
 };
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
 
 export const ExitIcon = () => {
   return (
@@ -43,24 +38,3 @@ export const ExitIcon = () => {
     </svg>
   );
 };
-<<<<<<< HEAD
-
-// export const EmptyCircle = () => {
-//   return (
-//     <svg width="24" height="24" viewBox="0 0 24 24" className="circular-progressbar">
-//       <circle className="circle-background" cx="12" cy="12" r="11" stroke-width="2px"></circle>
-//       <circle
-//         className="circle-progress"
-//         cx="12"
-//         cy="12"
-//         r="11"
-//         stroke-width="2px"
-//         transform="rotate(-90 12 12)"
-//         style={{ strokeDasharray: 69.115, strokeDashoffset: 69.115 }}
-//       />
-//     </svg>
-//   );
-// };
-=======
->>>>>>> Stashed changes
->>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
