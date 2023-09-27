@@ -4,6 +4,7 @@ import * as Styled from './App.Styled';
 
 const App = () => {
   return (
+<<<<<<< Updated upstream
     <>
       <Styled.App>
         <Header />
@@ -12,6 +13,14 @@ const App = () => {
         </main>
       </Styled.App>
     </>
+=======
+    <Styled.App>
+      <Header />
+      <main>
+        <Body />
+      </main>
+    </Styled.App>
+>>>>>>> Stashed changes
   );
 };
 

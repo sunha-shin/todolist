@@ -23,7 +23,14 @@ export const Header = styled.header`
   .title {
     color: ${colors.white};
     font-size: 36px;
+<<<<<<< HEAD
     font-family: PoppinsBold;
+=======
+<<<<<<< Updated upstream
+    font-weight: 700;
+=======
+>>>>>>> Stashed changes
+>>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
 
     ${getResponsiveMediaQuery('sm')} {
       font-size: 24px;

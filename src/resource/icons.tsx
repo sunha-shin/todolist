@@ -25,6 +25,11 @@ export const EditIcon = () => {
     </svg>
   );
 };
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
 
 export const ExitIcon = () => {
   return (
@@ -38,6 +43,7 @@ export const ExitIcon = () => {
     </svg>
   );
 };
+<<<<<<< HEAD
 
 // export const EmptyCircle = () => {
 //   return (
@@ -55,3 +61,6 @@ export const ExitIcon = () => {
 //     </svg>
 //   );
 // };
+=======
+>>>>>>> Stashed changes
+>>>>>>> ecd15f73f7f1d3decbbe76220fb813ed9c50f1f8
