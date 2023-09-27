@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createGlobalStyle } from 'styled-components';
-import PoppinsBold from 'asset/font/Poppins-Bold.ttf';
-import PoppinsRegular from 'asset/font/Poppins-Regular.ttf';
 
 type ColorsType = {
   [key: string]: any;
