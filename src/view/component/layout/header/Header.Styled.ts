@@ -15,7 +15,10 @@ export const Header = styled.header`
   .title {
     color: #0a1629;
     font-size: 36px;
+<<<<<<< Updated upstream
     font-weight: 700;
+=======
+>>>>>>> Stashed changes
 
     ${getResponsiveMediaQuery('sm')} {
       font-size: 20px;

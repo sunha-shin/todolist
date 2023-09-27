@@ -45,6 +45,7 @@ export const getResponsiveMediaQuery = (size: string) => {
 };
 
 const GlobalStyle = createGlobalStyle`
+<<<<<<< Updated upstream
   body {
     margin: 0;
     padding: 0;
@@ -62,6 +63,29 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     /* --var-background-black:#000; */
   }
+=======
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: ${colors.lightGray};
+  color: ${colors.black};
+  font-family: 'Poppins', sans-serif;
+} 
+
+a {
+  text-decoration: none;
+  color: ${colors.black};
+}
+
+:root {
+  font-size: 16px;  
+}
+
+::-webkit-scrollbar {
+display: none;
+}
+>>>>>>> Stashed changes
 `;
 
 export default GlobalStyle;

@@ -25,6 +25,7 @@ const App = () => {
   // };
 
   return (
+<<<<<<< Updated upstream
     <>
       <Styled.App>
         {/* <a href="https://google.com" onClick={onClickFunc}></a>
@@ -40,6 +41,14 @@ const App = () => {
         {/* <AAA onClickFunc={onPrintFunc} /> */}
       </Styled.App>
     </>
+=======
+    <Styled.App>
+      <Header />
+      <main>
+        <Body />
+      </main>
+    </Styled.App>
+>>>>>>> Stashed changes
   );
 };
 
