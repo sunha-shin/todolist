@@ -6,7 +6,7 @@ export interface IResponse {
 }
 
 export const createTodoAPI = async (todoInput: Partial<Todo>): Promise<IResponse> => {
-  const res: Response = await fetch('http://localhost:8080/api/todo', {
+  const res: Response = await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/todo`, {
     method: POST,
     body: JSON.stringify(todoInput),
     headers: {
@@ -17,7 +17,7 @@ export const createTodoAPI = async (todoInput: Partial<Todo>): Promise<IResponse
 };
 
 export const readTodosAPI = async (): Promise<Todo[]> => {
-  const res: Response = await fetch(`http://localhost:8080/api/todo`, {
+  const res: Response = await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/todo`, {
     method: GET,
     headers: {
       'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export const readTodosAPI = async (): Promise<Todo[]> => {
 };
 
 export const updateTodoAPI = async (updatedInput: Todo): Promise<IResponse> => {
-  const res: Response = await fetch('http://localhost:8080/api/todo', {
+  const res: Response = await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/todo`, {
     method: PUT,
     body: JSON.stringify(updatedInput),
     headers: {
@@ -38,7 +38,7 @@ export const updateTodoAPI = async (updatedInput: Todo): Promise<IResponse> => {
 };
 
 export const deleteTodoAPI = async (id: string): Promise<IResponse> => {
-  const res: Response = await fetch(`http://localhost:8080/api/todo/${id}`, {
+  const res: Response = await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/todo/${id}`, {
     method: DELETE,
     headers: {
       'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export const deleteTodoAPI = async (id: string): Promise<IResponse> => {
 };
 
 export const updateProcessAPI = async (todo: Todo): Promise<IResponse> => {
-  const res: Response = await fetch('http://localhost:8080/api/todo/updateProcess', {
+  const res: Response = await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/todo/updateProcess`, {
     method: PUT,
     body: JSON.stringify(todo),
     headers: {
