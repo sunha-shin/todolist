@@ -1,14 +1,23 @@
-## Todo list 
-A responsive web application using Typescript, React and Node to help users manage their tasks
+## Overview - todo list
+- A responsive web application using Typescript, React and Node to help users manage their tasks
+- Created a backend RESTful API with HTTP methods in Node.js/Express.js, optimizing data retrieval processes
 
 ![image](https://github.com/sunha-shin/todolist/assets/47774611/adf89495-59bd-4dff-b790-4948b2f91967)
 
+## Live demo link
+https://todolist-front-sunha.netlify.app/
 
-|Project URL|Main language|Platform|Project Context|
-|:---|:---|:---|:---|
-|https://todolist-front-sunha.netlify.app/|Typescript, React, Node|Web|Timeline: July 2023 - Current<br>
+## Key skills
+- Typescript, React, Redux, HTML, CSS, JavaScript
+- Node.js, Express.js
+- MongoDB
+- RESTful API Design
+- Web Design and Responsive UI
+- Git Version Control
+- Deployment: Netlify(front-end), Cloudtype(Back-end)
 
-## :wrench:Skillset
-- **Front-end** Typescript, React, Redux, JavaScript(ES6+), REST APIs, HTTP methods, JSON, CSS3, HTML5, Styled components<br>
-- **Backend** Node.js<br>
-- **Others**  Git/GitHub, Jira, Slack, Agile/Scrum development<br><br>
+## Features
+1. Create, Read, Update, Delete todo functions
+2. Circular progress bar
+3. Responsive web design
+4. MongoDB
