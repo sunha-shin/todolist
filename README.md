@@ -14,10 +14,15 @@ https://todolist-front-sunha.netlify.app/
 - RESTful API Design
 - Web Design and Responsive UI
 - Git Version Control
-- Deployment: Netlify(front-end), Cloudtype(Back-end)
+- Deployment: Netlify (Front-end), Cloudtype (Back-end)
 
 ## Features
 1. Create, Read, Update, Delete todo functions
-2. Circular progress bar
-3. Responsive web design
-4. MongoDB
+2. Node.js - Router, controller, create REST APIs (get, post, put, delete)
+4. Circular progress bar
+5. Responsive web design
+6. MongoDB
+
+## Chanllenges
+1. Cors handling
+2. Backend Deployment
